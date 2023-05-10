@@ -1,3 +1,14 @@
+# Welcome to PokeTeam Remix!
+
+This application is created as a fun game / pokemon team creator and type checker as a fun project for practicing communicating with the pokemon API with the Remix framework.
+
+
+
+
+
+
+
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
