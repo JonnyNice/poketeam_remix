@@ -1,7 +1,7 @@
-
 import { useLoaderData } from "@remix-run/react";
 import { json as remixJson } from '@remix-run/node';
 import { useState } from "react";
+import Team from "../components/team";
 
 const GENERATION_RANGES = {
   1: [1, 151],
@@ -17,7 +17,7 @@ const GENERATION_RANGES = {
 };
 
 export const loader = async () => {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=1200`;
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=100`;
   const response = await fetch(url);
   const json = await response.json();
   const pokemonPromises = json.results.map(async (pokemon) => {
@@ -59,20 +59,8 @@ export default function IndexRoute() {
   return (
     <main>
       <div className="text-center items-center" >
-      <h1 className="text-3xl font-bold underline">PokéTeam Builder</h1>
-      <div className="outline-2 grid grid-cols-6 gap-4 place-items-center">
-        {team.map((pokemon) => (
-            <div key={pokemon.name}>
-              <img src={pokemon.image} alt={pokemon.name} />
-              <h3>{pokemon.name}</h3>
-              {pokemon.types.map((type) => (
-                <span key={type.name} className="mr-2">
-                  {type.name}
-                </span>
-              ))}
-            </div>
-          ))}
-      </div>
+        <h1 className="text-3xl font-bold underline">PokéTeam Builder</h1>
+          <Team team={team} />
       <form className="mb-6">
         <input
           type="text"
