@@ -17,7 +17,7 @@ const GENERATION_RANGES = {
 };
 
 export const loader = async () => {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=100`;
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=1200`;
   const response = await fetch(url);
   const json = await response.json();
   const pokemonPromises = json.results.map(async (pokemon) => {
